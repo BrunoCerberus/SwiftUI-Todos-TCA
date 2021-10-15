@@ -21,12 +21,12 @@ struct AppEnvironment {
     
 }
 
-let appReducer: Reducer<AppState, AppAction, AppEnvironment> = todoReducer.forEach(
-    state: \AppState.todos,
-    action: /AppAction.todo(index:action:),
-    environment: { _ in TodoEnvironment() }
-)
-.debug()
+//let appReducer: Reducer<AppState, AppAction, AppEnvironment> = todoReducer.forEach(
+//    state: \AppState.todos,
+//    action: /AppAction.todo(index:action:),
+//    environment: { _ in TodoEnvironment() }
+//)
+//.debug()
 
 //    Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
 //    switch action {
@@ -39,3 +39,15 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = todoReducer.forEa
 //    }
 //}
 //.debug()
+
+let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
+    todoReducer.forEach(state: \.todos,
+                        action: /AppAction.todo(index:action:),
+                        environment: { _ in TodoEnvironment() }),
+        Reducer { state, action, environment in
+            switch action {
+            case .todo(index: let index, action: let action):
+                return .none
+            }
+        }
+)
