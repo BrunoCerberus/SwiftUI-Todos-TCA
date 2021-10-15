@@ -18,7 +18,7 @@ struct ContentView: View {
                 List {
                     ForEach(Array(viewStore.todos.enumerated()), id: \.element.id) { index, todo in
                         HStack {
-                            Button(action: { viewStore.send(.todoCheckboxTapped(index: index)) }) {
+                            Button(action: { viewStore.send(.todo(index: index, action: .checkBoxTapped)) }) {
                                 Image(systemName: todo.isComplete ? "checkmark.square" : "square")
                             }
                             .buttonStyle(PlainButtonStyle())
@@ -26,7 +26,7 @@ struct ContentView: View {
                             TextField("Untitled todo",
                                       text: viewStore.binding(
                                         get: { $0.todos[index].description },
-                                        send: { .todoTextFieldChanged(index: index, text: $0) }
+                                        send: { .todo(index: index, action: .textFieldChanged($0)) }
                                       )
                             )
                         }
