@@ -14,6 +14,7 @@
 		154ACFDB2719201A00E60B6E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 154ACFDA2719201A00E60B6E /* ComposableArchitecture */; };
 		154ACFE32719237C00E60B6E /* MainCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFE22719237C00E60B6E /* MainCore.swift */; };
 		154ACFE5271926F700E60B6E /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFE4271926F700E60B6E /* Todo.swift */; };
+		154ACFE927192FD400E60B6E /* TodoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFE827192FD400E60B6E /* TodoCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		154ACFD227191EFB00E60B6E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		154ACFE22719237C00E60B6E /* MainCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCore.swift; sourceTree = "<group>"; };
 		154ACFE4271926F700E60B6E /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		154ACFE827192FD400E60B6E /* TodoCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				154ACFD127191EFB00E60B6E /* Preview Content */,
 				154ACFE22719237C00E60B6E /* MainCore.swift */,
 				154ACFE4271926F700E60B6E /* Todo.swift */,
+				154ACFE827192FD400E60B6E /* TodoCore.swift */,
 			);
 			path = "SwiftUI-Todos-TCA";
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				154ACFCE27191EF900E60B6E /* ContentView.swift in Sources */,
+				154ACFE927192FD400E60B6E /* TodoCore.swift in Sources */,
 				154ACFCC27191EF900E60B6E /* SwiftUI_Todos_TCAApp.swift in Sources */,
 				154ACFE32719237C00E60B6E /* MainCore.swift in Sources */,
 				154ACFE5271926F700E60B6E /* Todo.swift in Sources */,
