@@ -6,12 +6,31 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct SwiftUI_Todos_TCAApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(store: Store(initialState: AppState(todos: [
+                Todo(
+                    id: UUID(),
+                    description: "Milk",
+                    isComplete: false
+                ),
+                Todo(
+                    id: UUID(),
+                    description: "Eggs",
+                    isComplete: false
+                ),
+                Todo(
+                    id: UUID(),
+                    description: "Hand Soap",
+                    isComplete: true
+                ),
+            ]),
+                                     reducer: appReducer,
+                                     environment: AppEnvironment()))
         }
     }
 }

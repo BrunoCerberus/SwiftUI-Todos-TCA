@@ -12,6 +12,8 @@
 		154ACFD027191EFB00E60B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154ACFCF27191EFB00E60B6E /* Assets.xcassets */; };
 		154ACFD327191EFB00E60B6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154ACFD227191EFB00E60B6E /* Preview Assets.xcassets */; };
 		154ACFDB2719201A00E60B6E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 154ACFDA2719201A00E60B6E /* ComposableArchitecture */; };
+		154ACFE32719237C00E60B6E /* MainCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFE22719237C00E60B6E /* MainCore.swift */; };
+		154ACFE5271926F700E60B6E /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFE4271926F700E60B6E /* Todo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		154ACFCD27191EF900E60B6E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		154ACFCF27191EFB00E60B6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		154ACFD227191EFB00E60B6E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		154ACFE22719237C00E60B6E /* MainCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCore.swift; sourceTree = "<group>"; };
+		154ACFE4271926F700E60B6E /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				154ACFCD27191EF900E60B6E /* ContentView.swift */,
 				154ACFCF27191EFB00E60B6E /* Assets.xcassets */,
 				154ACFD127191EFB00E60B6E /* Preview Content */,
+				154ACFE22719237C00E60B6E /* MainCore.swift */,
+				154ACFE4271926F700E60B6E /* Todo.swift */,
 			);
 			path = "SwiftUI-Todos-TCA";
 			sourceTree = "<group>";
@@ -147,6 +153,8 @@
 			files = (
 				154ACFCE27191EF900E60B6E /* ContentView.swift in Sources */,
 				154ACFCC27191EF900E60B6E /* SwiftUI_Todos_TCAApp.swift in Sources */,
+				154ACFE32719237C00E60B6E /* MainCore.swift in Sources */,
+				154ACFE5271926F700E60B6E /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
