@@ -21,23 +21,6 @@ struct ContentView: View {
                         
                         TodoView(store: todoStore)
                     }
-//
-//                    ForEach(Array(viewStore.todos.enumerated()), id: \.element.id) { index, todo in
-//                        HStack {
-//                            Button(action: { viewStore.send(.todo(index: index, action: .checkBoxTapped)) }) {
-//                                Image(systemName: todo.isComplete ? "checkmark.square" : "square")
-//                            }
-//                            .buttonStyle(PlainButtonStyle())
-//
-//                            TextField("Untitled todo",
-//                                      text: viewStore.binding(
-//                                        get: { $0.todos[index].description },
-//                                        send: { .todo(index: index, action: .textFieldChanged($0)) }
-//                                      )
-//                            )
-//                        }
-//                        .foregroundColor(todo.isComplete ? .gray : nil)
-//                    }
                 }
                 .listStyle(PlainListStyle())
                 .navigationTitle("Todos")
