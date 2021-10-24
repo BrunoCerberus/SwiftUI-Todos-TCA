@@ -17,8 +17,8 @@ struct ContentView: View {
             WithViewStore(store) { viewStore in
                 List {
                     ForEachStore(
-                        store.scope(state: { $0.todos },
-                                    action: { AppAction.todo(index: $0, action: $1)}),
+                        store.scope(state: \.todos,
+                                    action: AppAction.todo(index:action:)),
                         content: TodoView.init(store:)
                     )
                 }
