@@ -12,6 +12,7 @@ struct AppState: Equatable {
 }
 
 enum AppAction {
+    case addButtonTapped
     case todo(index: Int, action: TodoAction)
 //    case todoCheckboxTapped(index: Int)
 //    case todoTextFieldChanged(index: Int, text: String)
@@ -47,6 +48,9 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
         Reducer { state, action, environment in
             switch action {
             case .todo(index: let index, action: let action):
+                return .none
+                
+            case .addButtonTapped:
                 return .none
             }
         }

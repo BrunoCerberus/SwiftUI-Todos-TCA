@@ -24,6 +24,11 @@ struct ContentView: View {
                 }
                 .listStyle(PlainListStyle())
                 .navigationTitle("Todos")
+                .toolbar {
+                    Button(action: { viewStore.send(.addButtonTapped) }) {
+                        Text("Add")
+                    }
+                }
             }
         }
     }
