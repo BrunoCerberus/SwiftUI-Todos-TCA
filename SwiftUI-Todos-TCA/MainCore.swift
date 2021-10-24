@@ -51,6 +51,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                 return .none
                 
             case .addButtonTapped:
+                state.todos.insert(Todo(), at: 0)
                 return .none
             }
         }
