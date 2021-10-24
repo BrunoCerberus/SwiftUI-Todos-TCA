@@ -18,22 +18,8 @@ struct ContentView: View {
                 List {
                     ForEachStore(store.scope(state: { $0.todos },
                                              action: { AppAction.todo(index: $0, action: $1)})) { todoStore in
-                        WithViewStore(todoStore) { todoViewStore in
-                            HStack {
-                                Button(action: { todoViewStore.send(.checkBoxTapped) }) {
-                                    Image(systemName: todoViewStore.isComplete ? "checkmark.square" : "square")
-                                }
-                                .buttonStyle(PlainButtonStyle())
-                                
-                                TextField("Untitled todo",
-                                          text: todoViewStore.binding(
-                                            get: { $0.description },
-                                            send: { .textFieldChanged($0) }
-                                          )
-                                )
-                            }
-                            .foregroundColor(todoViewStore.isComplete ? .gray : nil)
-                        }
+                        
+                        TodoView(store: todoStore)
                     }
 //
 //                    ForEach(Array(viewStore.todos.enumerated()), id: \.element.id) { index, todo in
@@ -56,6 +42,30 @@ struct ContentView: View {
                 .listStyle(PlainListStyle())
                 .navigationTitle("Todos")
             }
+        }
+    }
+}
+
+struct TodoView : View {
+    
+    let store: Store<Todo, TodoAction>
+    
+    var body: some View {
+        WithViewStore(store) { todoViewStore in
+            HStack {
+                Button(action: { todoViewStore.send(.checkBoxTapped) }) {
+                    Image(systemName: todoViewStore.isComplete ? "checkmark.square" : "square")
+                }
+                .buttonStyle(PlainButtonStyle())
+                
+                TextField("Untitled todo",
+                          text: todoViewStore.binding(
+                            get: { $0.description },
+                            send: { .textFieldChanged($0) }
+                          )
+                )
+            }
+            .foregroundColor(todoViewStore.isComplete ? .gray : nil)
         }
     }
 }
