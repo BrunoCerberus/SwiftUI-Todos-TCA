@@ -43,8 +43,8 @@ struct TodoView : View {
                 
                 TextField("Untitled todo",
                           text: todoViewStore.binding(
-                            get: { $0.description },
-                            send: { .textFieldChanged($0) }
+                            get: \.description,
+                            send: TodoAction.textFieldChanged
                           )
                 )
             }
