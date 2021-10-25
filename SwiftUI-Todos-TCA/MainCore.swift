@@ -18,8 +18,8 @@ enum AppAction: Equatable {
 //    case todoTextFieldChanged(index: Int, text: String)
 }
 
-struct AppEnvironment: Equatable {
-    
+struct AppEnvironment {
+    var uuid: () -> UUID
 }
 
 //let appReducer: Reducer<AppState, AppAction, AppEnvironment> = todoReducer.forEach(
@@ -51,7 +51,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                 return .none
                 
             case .addButtonTapped:
-                state.todos.insert(Todo(), at: 0)
+                state.todos.insert(Todo(id: environment.uuid()), at: 0)
                 return .none
             }
         }

@@ -30,7 +30,7 @@ struct SwiftUI_Todos_TCAApp: App {
                 ),
             ]),
                                      reducer: appReducer,
-                                     environment: AppEnvironment()))
+                                     environment: AppEnvironment(uuid: UUID.init)))
         }
     }
 }
