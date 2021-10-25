@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1530A1D027264B9000D0B003 /* SwiftUI_Todos_TCATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1530A1CF27264B9000D0B003 /* SwiftUI_Todos_TCATests.swift */; };
 		154ACFCC27191EF900E60B6E /* SwiftUI_Todos_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFCB27191EF900E60B6E /* SwiftUI_Todos_TCAApp.swift */; };
 		154ACFCE27191EF900E60B6E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFCD27191EF900E60B6E /* ContentView.swift */; };
 		154ACFD027191EFB00E60B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154ACFCF27191EFB00E60B6E /* Assets.xcassets */; };
@@ -17,7 +18,19 @@
 		154ACFE927192FD400E60B6E /* TodoCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFE827192FD400E60B6E /* TodoCore.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1530A1D127264B9000D0B003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 154ACFC027191EF900E60B6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 154ACFC727191EF900E60B6E;
+			remoteInfo = "SwiftUI-Todos-TCA";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1530A1CD27264B9000D0B003 /* SwiftUI-Todos-TCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI-Todos-TCATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1530A1CF27264B9000D0B003 /* SwiftUI_Todos_TCATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Todos_TCATests.swift; sourceTree = "<group>"; };
 		154ACFC827191EF900E60B6E /* SwiftUI-Todos-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Todos-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		154ACFCB27191EF900E60B6E /* SwiftUI_Todos_TCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Todos_TCAApp.swift; sourceTree = "<group>"; };
 		154ACFCD27191EF900E60B6E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +42,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1530A1CA27264B9000D0B003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		154ACFC527191EF900E60B6E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,10 +60,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1530A1CE27264B9000D0B003 /* SwiftUI-Todos-TCATests */ = {
+			isa = PBXGroup;
+			children = (
+				1530A1CF27264B9000D0B003 /* SwiftUI_Todos_TCATests.swift */,
+			);
+			path = "SwiftUI-Todos-TCATests";
+			sourceTree = "<group>";
+		};
 		154ACFBF27191EF900E60B6E = {
 			isa = PBXGroup;
 			children = (
 				154ACFCA27191EF900E60B6E /* SwiftUI-Todos-TCA */,
+				1530A1CE27264B9000D0B003 /* SwiftUI-Todos-TCATests */,
 				154ACFC927191EF900E60B6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				154ACFC827191EF900E60B6E /* SwiftUI-Todos-TCA.app */,
+				1530A1CD27264B9000D0B003 /* SwiftUI-Todos-TCATests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +111,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1530A1CC27264B9000D0B003 /* SwiftUI-Todos-TCATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1530A1D527264B9000D0B003 /* Build configuration list for PBXNativeTarget "SwiftUI-Todos-TCATests" */;
+			buildPhases = (
+				1530A1C927264B9000D0B003 /* Sources */,
+				1530A1CA27264B9000D0B003 /* Frameworks */,
+				1530A1CB27264B9000D0B003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1530A1D227264B9000D0B003 /* PBXTargetDependency */,
+			);
+			name = "SwiftUI-Todos-TCATests";
+			productName = "SwiftUI-Todos-TCATests";
+			productReference = 1530A1CD27264B9000D0B003 /* SwiftUI-Todos-TCATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		154ACFC727191EF900E60B6E /* SwiftUI-Todos-TCA */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 154ACFD627191EFB00E60B6E /* Build configuration list for PBXNativeTarget "SwiftUI-Todos-TCA" */;
@@ -111,6 +159,10 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					1530A1CC27264B9000D0B003 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 154ACFC727191EF900E60B6E;
+					};
 					154ACFC727191EF900E60B6E = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -133,11 +185,19 @@
 			projectRoot = "";
 			targets = (
 				154ACFC727191EF900E60B6E /* SwiftUI-Todos-TCA */,
+				1530A1CC27264B9000D0B003 /* SwiftUI-Todos-TCATests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1530A1CB27264B9000D0B003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		154ACFC627191EF900E60B6E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,6 +210,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1530A1C927264B9000D0B003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1530A1D027264B9000D0B003 /* SwiftUI_Todos_TCATests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		154ACFC427191EF900E60B6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,7 +232,61 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1530A1D227264B9000D0B003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 154ACFC727191EF900E60B6E /* SwiftUI-Todos-TCA */;
+			targetProxy = 1530A1D127264B9000D0B003 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1530A1D327264B9000D0B003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RDTR6557FX;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "brunolopes.SwiftUI-Todos-TCATests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUI-Todos-TCA.app/SwiftUI-Todos-TCA";
+			};
+			name = Debug;
+		};
+		1530A1D427264B9000D0B003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RDTR6557FX;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "brunolopes.SwiftUI-Todos-TCATests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUI-Todos-TCA.app/SwiftUI-Todos-TCA";
+			};
+			name = Release;
+		};
 		154ACFD427191EFB00E60B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -344,6 +466,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1530A1D527264B9000D0B003 /* Build configuration list for PBXNativeTarget "SwiftUI-Todos-TCATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1530A1D327264B9000D0B003 /* Debug */,
+				1530A1D427264B9000D0B003 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		154ACFC327191EF900E60B6E /* Build configuration list for PBXProject "SwiftUI-Todos-TCA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
