@@ -7,7 +7,7 @@
 
 import ComposableArchitecture
 
-enum TodoAction {
+enum TodoAction: Equatable {
     case checkBoxTapped
     case textFieldChanged(String)
 }
