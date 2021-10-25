@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1530A1D027264B9000D0B003 /* SwiftUI_Todos_TCATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1530A1CF27264B9000D0B003 /* SwiftUI_Todos_TCATests.swift */; };
+		1530A1D727264BE100D0B003 /* TodosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1530A1D627264BE100D0B003 /* TodosTests.swift */; };
 		154ACFCC27191EF900E60B6E /* SwiftUI_Todos_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFCB27191EF900E60B6E /* SwiftUI_Todos_TCAApp.swift */; };
 		154ACFCE27191EF900E60B6E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ACFCD27191EF900E60B6E /* ContentView.swift */; };
 		154ACFD027191EFB00E60B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154ACFCF27191EFB00E60B6E /* Assets.xcassets */; };
@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1530A1CD27264B9000D0B003 /* SwiftUI-Todos-TCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI-Todos-TCATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1530A1CF27264B9000D0B003 /* SwiftUI_Todos_TCATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Todos_TCATests.swift; sourceTree = "<group>"; };
+		1530A1D627264BE100D0B003 /* TodosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosTests.swift; sourceTree = "<group>"; };
 		154ACFC827191EF900E60B6E /* SwiftUI-Todos-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Todos-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		154ACFCB27191EF900E60B6E /* SwiftUI_Todos_TCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Todos_TCAApp.swift; sourceTree = "<group>"; };
 		154ACFCD27191EF900E60B6E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		1530A1CE27264B9000D0B003 /* SwiftUI-Todos-TCATests */ = {
 			isa = PBXGroup;
 			children = (
-				1530A1CF27264B9000D0B003 /* SwiftUI_Todos_TCATests.swift */,
+				1530A1D627264BE100D0B003 /* TodosTests.swift */,
 			);
 			path = "SwiftUI-Todos-TCATests";
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1530A1D027264B9000D0B003 /* SwiftUI_Todos_TCATests.swift in Sources */,
+				1530A1D727264BE100D0B003 /* TodosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
