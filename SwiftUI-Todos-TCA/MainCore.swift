@@ -8,7 +8,7 @@
 import ComposableArchitecture
 
 struct AppState: Equatable {
-    var todos: [Todo]
+    var todos: [Todo] = []
 }
 
 enum AppAction {
