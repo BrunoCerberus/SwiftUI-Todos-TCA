@@ -8,12 +8,12 @@
 import ComposableArchitecture
 
 struct AppState: Equatable {
-    var todos: [Todo] = []
+    var todos: IdentifiedArrayOf<Todo> = []
 }
 
 enum AppAction: Equatable {
     case addButtonTapped
-    case todo(index: Int, action: TodoAction)
+    case todo(id: Todo.ID, action: TodoAction)
 }
 
 struct AppEnvironment {
@@ -21,25 +21,29 @@ struct AppEnvironment {
 }
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
-    todoReducer.forEach(state: \.todos,
-                        action: /AppAction.todo(index:action:),
-                        environment: { _ in TodoEnvironment() }),
+    todoReducer.forEach(
+      state: \.todos,
+      action: /AppAction.todo(id:action:),
+      environment: { _ in TodoEnvironment() }
+    ),
         Reducer { state, action, environment in
             switch action {
-            case .todo(index: _, action: .checkBoxTapped):
-                state.todos = state.todos
+            case .todo(id: _, action: .checkBoxTapped):
+                state.todos = IdentifiedArrayOf(uniqueElements: state.todos
                     .enumerated()
                     .sorted { lhs, rhs in
                         (!lhs.element.isComplete && rhs.element.isComplete)
                         || lhs.offset < rhs.offset
                     }
-                    .map(\.element)
+                    .map(\.element))
                 return .none
                 
             case .addButtonTapped:
                 state.todos.insert(Todo(id: environment.uuid()), at: 0)
                 return .none
-            case .todo(index: let index, action: .textFieldChanged(_)):
+            case .todo(id: _, action: .textFieldChanged(_)):
+                return .none
+            case .todo:
                 return .none
             }
         }

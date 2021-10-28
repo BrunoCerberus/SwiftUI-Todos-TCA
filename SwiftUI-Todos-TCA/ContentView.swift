@@ -17,9 +17,8 @@ struct ContentView: View {
             WithViewStore(store) { viewStore in
                 List {
                     ForEachStore(
-                        store.scope(state: \.todos,
-                                    action: AppAction.todo(index:action:)),
-                        content: TodoView.init(store:)
+                      store.scope(state: \.todos, action: AppAction.todo(id:action:)),
+                      content: TodoView.init(store:)
                     )
                 }
                 .listStyle(PlainListStyle())
