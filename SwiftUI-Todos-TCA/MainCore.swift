@@ -14,8 +14,6 @@ struct AppState: Equatable {
 enum AppAction: Equatable {
     case addButtonTapped
     case todo(index: Int, action: TodoAction)
-//    case todoCheckboxTapped(index: Int)
-//    case todoTextFieldChanged(index: Int, text: String)
 }
 
 struct AppEnvironment {
