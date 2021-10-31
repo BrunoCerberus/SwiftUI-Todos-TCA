@@ -29,6 +29,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
         Reducer { state, action, environment in
             switch action {
             case .todo(id: _, action: .checkBoxTapped):
+                debugPrint("appReducer: .checkBoxTapped")
                 state.todos = IdentifiedArrayOf(uniqueElements: state.todos
                     .enumerated()
                     .sorted { lhs, rhs in
@@ -42,6 +43,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                 state.todos.insert(Todo(id: environment.uuid()), at: 0)
                 return .none
             case .todo(id: _, action: .textFieldChanged(_)):
+                debugPrint("appReducer: .textFieldChanged")
                 return .none
             case .todo:
                 return .none

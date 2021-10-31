@@ -19,9 +19,11 @@ struct TodoEnvironment {
 let todoReducer = Reducer<Todo, TodoAction, TodoEnvironment> { state, action, environment in
     switch action {
     case .checkBoxTapped:
+        debugPrint("todoReducer: .checkBoxTapped")
         state.isComplete.toggle()
         return .none
     case .textFieldChanged(let text):
+        debugPrint("todoReducer: .textFieldChanged")
         state.description = text
         return .none
     }
