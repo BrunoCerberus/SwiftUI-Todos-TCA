@@ -12,22 +12,24 @@ import XCTest
 final class TodosTests: XCTestCase {
     
     func testCompletingTodo() {
+        
+        let appState = AppState(todos: [
+            Todo(
+                id: UUID(uuidString: "00000000-0000-0000-0000-000000000000")!,
+                description: "Milk",
+                isComplete: false
+            )
+        ]
+                              )
         let store = TestStore(
-            initialState: AppState(todos: [
-                Todo(
-                    id: UUID(uuidString: "00000000-0000-0000-0000-000000000000")!,
-                    description: "Milk",
-                    isComplete: false
-                )
-            ]
-                                  ),
+            initialState: appState,
             reducer: appReducer,
             environment: AppEnvironment(uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! })
         )
         
         store.assert(
-            .send(.todo(index: 0, action: .checkBoxTapped)) {
-                $0.todos[0].isComplete = true
+            .send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
+                $0.todos[id: appState.todos[0].id]?.isComplete = true
             }
         )
     }

@@ -9,7 +9,7 @@ import ComposableArchitecture
 import Foundation
 
 struct Todo: Equatable, Identifiable {
-    let id: UUID
+    var id: UUID
     var description = ""
     var isComplete = false
 }
