@@ -55,4 +55,45 @@ final class TodosTests: XCTestCase {
             }
         )
     }
+    
+    func testTodoSorting() {
+        
+        let appState = AppState(todos: [
+            Todo(
+                id: UUID(uuidString: "00000000-0000-0000-0000-000000000000")!,
+                description: "Milk",
+                isComplete: false
+            ),
+            
+            Todo(
+                id: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!,
+                description: "Eggs",
+                isComplete: false
+            )
+        ]
+                              )
+        let store = TestStore(
+            initialState: appState,
+            reducer: appReducer,
+            environment: AppEnvironment(uuid: { fatalError("Uninplemented") })
+        )
+        
+        store.assert(
+            .send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
+                $0.todos = [
+                    Todo(
+                        id: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!,
+                        description: "Eggs",
+                        isComplete: false
+                    ),
+                    
+                    Todo(
+                        id: UUID(uuidString: "00000000-0000-0000-0000-000000000000")!,
+                        description: "Milk",
+                        isComplete: true
+                    )
+                ]
+            }
+        )
+    }
 }
