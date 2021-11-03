@@ -14,6 +14,7 @@ struct AppState: Equatable {
 enum AppAction: Equatable {
     case addButtonTapped
     case todo(id: Todo.ID, action: TodoAction)
+    case todoDelayCompleted
 }
 
 struct AppEnvironment {
@@ -30,15 +31,9 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
             switch action {
             case .todo(id: _, action: .checkBoxTapped):
                 debugPrint("appReducer: .checkBoxTapped")
-                state.todos = IdentifiedArrayOf(uniqueElements: state.todos
-                    .enumerated()
-                    .sorted { lhs, rhs in
-                        (!lhs.element.isComplete && rhs.element.isComplete)
-                        || lhs.offset < rhs.offset
-                    }
-                    .map(\.element))
-                return .none
-                
+                return Effect(value: AppAction.todoDelayCompleted)
+                    .delay(for: 1, scheduler: DispatchQueue.main)
+                    .eraseToEffect()
             case .addButtonTapped:
                 state.todos.insert(Todo(id: environment.uuid()), at: 0)
                 return .none
@@ -46,6 +41,15 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                 debugPrint("appReducer: .textFieldChanged")
                 return .none
             case .todo:
+                return .none
+            case .todoDelayCompleted:
+                state.todos = IdentifiedArrayOf(uniqueElements: state.todos
+                    .enumerated()
+                    .sorted { lhs, rhs in
+                        (!lhs.element.isComplete && rhs.element.isComplete)
+                        || lhs.offset < rhs.offset
+                    }
+                    .map(\.element))
                 return .none
             }
         }
