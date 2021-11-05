@@ -94,4 +94,43 @@ final class TodosTests: XCTestCase {
             }
         )
     }
+    
+    func testTodoSortingCancellation() {
+        
+        let appState = AppState(todos: [
+            Todo(
+                id: UUID(uuidString: "00000000-0000-0000-0000-000000000000")!,
+                description: "Milk",
+                isComplete: false
+            ),
+            
+            Todo(
+                id: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!,
+                description: "Eggs",
+                isComplete: false
+            )
+        ]
+                              )
+        let store = TestStore(
+            initialState: appState,
+            reducer: appReducer,
+            environment: AppEnvironment(uuid: { fatalError("Uninplemented") })
+        )
+        
+        store.assert(
+            .send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
+                $0.todos[id: appState.todos[0].id]?.isComplete = true
+            },
+            .do {
+                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 0.5)
+            },
+            .send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
+                $0.todos[id: appState.todos[0].id]?.isComplete = false
+            },
+            .do {
+                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 1)
+            },
+            .receive(.todoDelayCompleted)
+        )
+    }
 }
