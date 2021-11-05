@@ -35,7 +35,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                 struct CancelDelayId: Hashable {}
                 return Effect(value: AppAction.todoDelayCompleted)
 //                    .debounce(id: CancelDelayId(), for: 1, scheduler: environment.mainQueue.animation())
-                    .delay(for: 1, scheduler: environment.mainQueue)
+                    .delay(for: 1, scheduler: environment.mainQueue.animation())
                     .eraseToEffect()
                     .cancellable(id: CancelDelayId(), cancelInFlight: true)
             case .addButtonTapped:
