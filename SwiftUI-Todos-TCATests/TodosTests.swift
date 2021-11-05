@@ -130,7 +130,8 @@ final class TodosTests: XCTestCase {
                 $0.todos[id: appState.todos[0].id]?.isComplete = true
             },
             .do {
-                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 0.5)
+//                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 0.5)
+                self.scheduler.advance(by: 0.5)
             },
             .send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
                 $0.todos[id: appState.todos[0].id]?.isComplete = false
