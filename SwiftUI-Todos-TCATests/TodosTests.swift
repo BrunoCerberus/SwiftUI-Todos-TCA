@@ -11,6 +11,8 @@ import XCTest
 
 final class TodosTests: XCTestCase {
     
+    let scheduler = DispatchQueue.test
+    
     func testCompletingTodo() {
         
         let appState = AppState(todos: [
@@ -24,7 +26,8 @@ final class TodosTests: XCTestCase {
         let store = TestStore(
             initialState: appState,
             reducer: appReducer,
-            environment: AppEnvironment(mainQueue: .main, uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! })
+            environment: AppEnvironment(mainQueue: scheduler.eraseToAnyScheduler(),
+                                        uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! })
         )
         
         store.assert(
@@ -32,7 +35,8 @@ final class TodosTests: XCTestCase {
                 $0.todos[id: appState.todos[0].id]?.isComplete = true
             },
             .do {
-                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 1)
+//                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 1)
+                self.scheduler.advance(by: 1)
             },
             .receive(.todoDelayCompleted)
         )
@@ -43,7 +47,8 @@ final class TodosTests: XCTestCase {
             initialState: AppState(),
             reducer: appReducer,
             environment: AppEnvironment(
-                mainQueue: .main, uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! }
+                mainQueue: scheduler.eraseToAnyScheduler(),
+                uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! }
             )
         )
         
@@ -79,7 +84,8 @@ final class TodosTests: XCTestCase {
         let store = TestStore(
             initialState: appState,
             reducer: appReducer,
-            environment: AppEnvironment(mainQueue: .main, uuid: { fatalError("Uninplemented") })
+            environment: AppEnvironment(mainQueue: scheduler.eraseToAnyScheduler(),
+                                        uuid: { fatalError("Uninplemented") })
         )
         
         store.assert(
@@ -87,7 +93,8 @@ final class TodosTests: XCTestCase {
                 $0.todos[id: appState.todos[0].id]?.isComplete = true
             },
             .do {
-                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 1)
+//                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 1)
+                self.scheduler.advance(by: 1)
             },
             .receive(.todoDelayCompleted) {
                 $0.todos.swapAt(0, 1)
@@ -114,7 +121,8 @@ final class TodosTests: XCTestCase {
         let store = TestStore(
             initialState: appState,
             reducer: appReducer,
-            environment: AppEnvironment(mainQueue: .main, uuid: { fatalError("Uninplemented") })
+            environment: AppEnvironment(mainQueue: scheduler.eraseToAnyScheduler(),
+                                        uuid: { fatalError("Uninplemented") })
         )
         
         store.assert(
@@ -128,7 +136,8 @@ final class TodosTests: XCTestCase {
                 $0.todos[id: appState.todos[0].id]?.isComplete = false
             },
             .do {
-                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 1)
+//                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 1)
+                self.scheduler.advance(by: 1)
             },
             .receive(.todoDelayCompleted)
         )

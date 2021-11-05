@@ -30,7 +30,7 @@ struct SwiftUI_Todos_TCAApp: App {
                 ),
             ]),
                                      reducer: appReducer,
-                                     environment: AppEnvironment(mainQueue: .main,
+                                     environment: AppEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
                                                                  uuid: UUID.init)))
         }
     }

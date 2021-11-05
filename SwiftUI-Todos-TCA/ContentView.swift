@@ -77,7 +77,7 @@ struct ContentView_Previews: PreviewProvider {
             ),
         ]),
                                  reducer: appReducer,
-                                 environment: AppEnvironment(mainQueue: .main,
+                                 environment: AppEnvironment(mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
                                                              uuid: UUID.init)))
     }
 }
