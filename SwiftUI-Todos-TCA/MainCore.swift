@@ -18,6 +18,7 @@ enum AppAction: Equatable {
 }
 
 struct AppEnvironment {
+    var mainQueue: AnySchedulerOf<DispatchQueue>
     var uuid: () -> UUID
 }
 
@@ -33,7 +34,8 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                 debugPrint("appReducer: .checkBoxTapped")
                 struct CancelDelayId: Hashable {}
                 return Effect(value: AppAction.todoDelayCompleted)
-                    .delay(for: 1, scheduler: DispatchQueue.main)
+//                    .debounce(id: CancelDelayId(), for: 1, scheduler: environment.mainQueue.animation())
+                    .delay(for: 1, scheduler: environment.mainQueue)
                     .eraseToEffect()
                     .cancellable(id: CancelDelayId(), cancelInFlight: true)
             case .addButtonTapped:

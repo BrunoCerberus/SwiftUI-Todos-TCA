@@ -24,7 +24,7 @@ final class TodosTests: XCTestCase {
         let store = TestStore(
             initialState: appState,
             reducer: appReducer,
-            environment: AppEnvironment(uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! })
+            environment: AppEnvironment(mainQueue: .main, uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! })
         )
         
         store.assert(
@@ -43,7 +43,7 @@ final class TodosTests: XCTestCase {
             initialState: AppState(),
             reducer: appReducer,
             environment: AppEnvironment(
-                uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! }
+                mainQueue: .main, uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! }
             )
         )
         
@@ -79,7 +79,7 @@ final class TodosTests: XCTestCase {
         let store = TestStore(
             initialState: appState,
             reducer: appReducer,
-            environment: AppEnvironment(uuid: { fatalError("Uninplemented") })
+            environment: AppEnvironment(mainQueue: .main, uuid: { fatalError("Uninplemented") })
         )
         
         store.assert(
@@ -114,7 +114,7 @@ final class TodosTests: XCTestCase {
         let store = TestStore(
             initialState: appState,
             reducer: appReducer,
-            environment: AppEnvironment(uuid: { fatalError("Uninplemented") })
+            environment: AppEnvironment(mainQueue: .main, uuid: { fatalError("Uninplemented") })
         )
         
         store.assert(
