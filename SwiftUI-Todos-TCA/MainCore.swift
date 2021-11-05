@@ -34,7 +34,6 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                 debugPrint("appReducer: .checkBoxTapped")
                 struct CancelDelayId: Hashable {}
                 return Effect(value: AppAction.todoDelayCompleted)
-//                    .debounce(id: CancelDelayId(), for: 1, scheduler: environment.mainQueue.animation())
                     .delay(for: 1, scheduler: environment.mainQueue.animation())
                     .eraseToEffect()
                     .cancellable(id: CancelDelayId(), cancelInFlight: true)
