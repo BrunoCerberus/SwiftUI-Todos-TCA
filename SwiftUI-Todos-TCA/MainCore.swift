@@ -43,8 +43,6 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
             case .todo(id: _, action: .textFieldChanged(_)):
                 debugPrint("appReducer: .textFieldChanged")
                 return .none
-            case .todo:
-                return .none
             case .todoDelayCompleted:
                 state.todos = IdentifiedArrayOf(uniqueElements: state.todos
                     .enumerated()

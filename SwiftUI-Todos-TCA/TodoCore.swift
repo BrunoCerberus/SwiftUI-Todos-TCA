@@ -12,9 +12,7 @@ enum TodoAction: Equatable {
     case textFieldChanged(String)
 }
 
-struct TodoEnvironment {
-    
-}
+struct TodoEnvironment {}
 
 let todoReducer = Reducer<Todo, TodoAction, TodoEnvironment> { state, action, environment in
     switch action {
