@@ -11,7 +11,7 @@ import XCTest
 
 final class TodosTests: XCTestCase {
     
-    let scheduler = DispatchQueue.test
+    let scheduler: TestSchedulerOf<DispatchQueue> = DispatchQueue.test
     
     func testCompletingTodo() {
         
