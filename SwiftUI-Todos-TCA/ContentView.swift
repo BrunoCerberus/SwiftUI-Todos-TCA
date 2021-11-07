@@ -33,30 +33,6 @@ struct ContentView: View {
     }
 }
 
-struct TodoView : View {
-    
-    let store: Store<Todo, TodoAction>
-    
-    var body: some View {
-        WithViewStore(store) { todoViewStore in
-            HStack {
-                Button(action: { todoViewStore.send(.checkBoxTapped) }) {
-                    Image(systemName: todoViewStore.isComplete ? "checkmark.square" : "square")
-                }
-                .buttonStyle(PlainButtonStyle())
-                
-                TextField("Untitled todo",
-                          text: todoViewStore.binding(
-                            get: \.description,
-                            send: TodoAction.textFieldChanged
-                          )
-                )
-            }
-            .foregroundColor(todoViewStore.isComplete ? .gray : nil)
-        }
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(store: Store(initialState: AppState(todos: [
