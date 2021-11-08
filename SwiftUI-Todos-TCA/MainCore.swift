@@ -23,8 +23,10 @@ struct AppEnvironment {
 }
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
+    // here we have each Todo cell has its own reducer and all of them are tied with appReducer
     todoReducer.forEach(
       state: \.todos,
+      // everytime when a .send executes a .todo action, both reducer .todo actions are executed
       action: /AppAction.todo(id:action:),
       environment: { _ in TodoEnvironment() }
     ),
@@ -33,6 +35,8 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
             case .todo(id: _, action: .checkBoxTapped):
                 debugPrint("appReducer: .checkBoxTapped")
                 struct CancelDelayId: Hashable {}
+                // after one second, .todoDelayCompleted action is executed forcing switch action executing again
+                // falling on .todoDelayCompleted case
                 return Effect(value: AppAction.todoDelayCompleted)
                     .delay(for: 1, scheduler: environment.mainQueue.animation())
                     .eraseToEffect()
