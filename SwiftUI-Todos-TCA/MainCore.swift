@@ -24,6 +24,7 @@ struct AppEnvironment {
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     // here we have each Todo cell has its own reducer and all of them are tied with appReducer
+    // in this case we used forEach, but in case of a single view, pullback could be used
     todoReducer.forEach(
       state: \.todos,
       // everytime when a .send executes a .todo action, both reducer .todo actions are executed
