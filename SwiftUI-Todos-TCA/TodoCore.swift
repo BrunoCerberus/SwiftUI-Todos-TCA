@@ -29,3 +29,5 @@ let todoReducer = Reducer<Todo, TodoAction, TodoEnvironment> { state, action, en
         return .none
     }
 }
+.binding()
+.debug()
