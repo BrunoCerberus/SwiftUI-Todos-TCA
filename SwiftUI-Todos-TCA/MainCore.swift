@@ -45,9 +45,9 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
             case .addButtonTapped:
                 state.todos.insert(Todo(id: environment.uuid()), at: 0)
                 return .none
-            case .todo(id: _, action: .textFieldChanged(_)):
-                debugPrint("appReducer: .textFieldChanged")
-                return .none
+//            case .todo(id: _, action: .textFieldChanged(_)):
+//                debugPrint("appReducer: .textFieldChanged")
+//                return .none
             case .todoDelayCompleted:
                 state.todos = IdentifiedArrayOf(uniqueElements: state.todos
                     .enumerated()
@@ -56,6 +56,9 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                         || lhs.offset < rhs.offset
                     }
                     .map(\.element))
+                return .none
+            case .todo(id: let id, action: .binding):
+                debugPrint("TEXT CHANGED ON mainReducer")
                 return .none
             }
         }

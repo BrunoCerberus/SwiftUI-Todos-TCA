@@ -7,9 +7,10 @@
 
 import ComposableArchitecture
 
-enum TodoAction: Equatable {
+enum TodoAction: Equatable, BindableAction {
+    case binding(BindingAction<Todo>)
+        
     case checkBoxTapped
-    case textFieldChanged(String)
 }
 
 struct TodoEnvironment {}
@@ -20,9 +21,11 @@ let todoReducer = Reducer<Todo, TodoAction, TodoEnvironment> { state, action, en
         debugPrint("todoReducer: .checkBoxTapped")
         state.isComplete.toggle()
         return .none
-    case .textFieldChanged(let text):
-        debugPrint("todoReducer: .textFieldChanged")
-        state.description = text
+//    case .binding(\.$description):
+//        debugPrint("TEXT CHANGED ON todoReducer")
+//        return .none
+    case .binding:
+        debugPrint("TEXT CHANGED ON todoReducer")
         return .none
     }
 }

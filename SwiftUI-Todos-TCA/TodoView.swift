@@ -20,11 +20,14 @@ struct TodoView : View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 
-                TextField("Untitled todo",
-                          text: todoViewStore.binding(
-                            get: \.description,
-                            send: TodoAction.textFieldChanged
-                          )
+//                TextField("Untitled todo",
+//                          text: todoViewStore.binding(
+//                            get: \.description,
+//                            send: TodoAction.textFieldChanged
+//                          )
+                TextField(
+                    "Untitled todo",
+                    text: todoViewStore.binding(\.$description)
                 )
             }
             .foregroundColor(todoViewStore.isComplete ? .gray : nil)

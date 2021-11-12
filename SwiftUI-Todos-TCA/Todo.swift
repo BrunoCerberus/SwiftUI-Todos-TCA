@@ -10,6 +10,6 @@ import Foundation
 
 struct Todo: Equatable, Identifiable {
     var id: UUID
-    var description = ""
+    @BindableState var description: String = ""
     var isComplete = false
 }
