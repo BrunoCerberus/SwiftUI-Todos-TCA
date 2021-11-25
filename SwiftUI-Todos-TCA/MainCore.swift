@@ -39,9 +39,10 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                 // after one second, .todoDelayCompleted action is executed forcing switch action executing again
                 // falling on .todoDelayCompleted case
                 return Effect(value: AppAction.todoDelayCompleted)
-                    .delay(for: 1, scheduler: environment.mainQueue.animation())
-                    .eraseToEffect()
-                    .cancellable(id: CancelDelayId(), cancelInFlight: true)
+                    .debounce(id: CancelDelayId(), for: 1, scheduler: environment.mainQueue.animation())
+//                    .delay(for: 1, scheduler: environment.mainQueue.animation())
+//                    .eraseToEffect()
+//                    .cancellable(id: CancelDelayId(), cancelInFlight: true)
             case .addButtonTapped:
                 state.todos.insert(Todo(id: environment.uuid()), at: 0)
                 return .none
