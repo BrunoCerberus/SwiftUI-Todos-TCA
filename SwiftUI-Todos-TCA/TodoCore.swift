@@ -21,9 +21,6 @@ let todoReducer = Reducer<Todo, TodoAction, TodoEnvironment> { state, action, en
         debugPrint("todoReducer: .checkBoxTapped")
         state.isComplete.toggle()
         return .none
-//    case .binding(\.$description):
-//        debugPrint("TEXT CHANGED ON todoReducer")
-//        return .none
     case .binding:
         debugPrint("TEXT CHANGED ON todoReducer")
         return .none
