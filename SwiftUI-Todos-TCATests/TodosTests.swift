@@ -35,7 +35,6 @@ final class TodosTests: XCTestCase {
                 $0.todos[id: appState.todos[0].id]?.isComplete = true
             },
             .do {
-//                _ = XCTWaiter.wait(for: [self.expectation(description: "wait")], timeout: 1)
                 self.scheduler.advance(by: 1)
             },
             .receive(.todoDelayCompleted)
