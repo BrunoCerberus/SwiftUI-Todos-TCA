@@ -113,20 +113,14 @@ final class TodosTests: XCTestCase {
                                         uuid: { fatalError("Uninplemented") })
         )
         
-        store.assert(
-            .send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
-                $0.todos[id: appState.todos[0].id]?.isComplete = true
-            },
-            .do {
-                self.scheduler.advance(by: 0.5)
-            },
-            .send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
-                $0.todos[id: appState.todos[0].id]?.isComplete = false
-            },
-            .do {
-                self.scheduler.advance(by: 1)
-            },
-            .receive(.todoDelayCompleted)
-        )
+        store.send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
+            $0.todos[id: appState.todos[0].id]?.isComplete = true
+        }
+        scheduler.advance(by: 0.5)
+        store.send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
+            $0.todos[id: appState.todos[0].id]?.isComplete = false
+        }
+        scheduler.advance(by: 1)
+        store.receive(.todoDelayCompleted)
     }
 }
