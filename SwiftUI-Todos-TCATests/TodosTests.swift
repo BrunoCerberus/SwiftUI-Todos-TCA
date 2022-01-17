@@ -30,15 +30,11 @@ final class TodosTests: XCTestCase {
                                         uuid: { UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")! })
         )
         
-        store.assert(
-            .send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
-                $0.todos[id: appState.todos[0].id]?.isComplete = true
-            },
-            .do {
-                self.scheduler.advance(by: 1)
-            },
-            .receive(.todoDelayCompleted)
-        )
+        store.send(.todo(id: appState.todos[0].id, action: .checkBoxTapped)) {
+            $0.todos[id: appState.todos[0].id]?.isComplete = true
+        }
+        scheduler.advance(by: 1)
+        store.receive(.todoDelayCompleted)
     }
     
     func testAddTodo() {
