@@ -47,17 +47,15 @@ final class TodosTests: XCTestCase {
             )
         )
         
-        store.assert(
-            .send(.addButtonTapped) {
-                $0.todos = [
-                    Todo(
-                        id: store.environment.uuid(),
-                        description: "",
-                        isComplete: false
-                    )
-                ]
-            }
-        )
+        store.send(.addButtonTapped) {
+            $0.todos = [
+                Todo(
+                    id: store.environment.uuid(),
+                    description: "",
+                    isComplete: false
+                )
+            ]
+        }
     }
     
     func testTodoSorting() {
